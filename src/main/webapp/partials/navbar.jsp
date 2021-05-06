@@ -7,10 +7,10 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" href="${pageContext.request.contextPath}/index.jsp">Home</a>
+          <a class="nav-link active" href="./index.jsp">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="${pageContext.request.contextPath}/login.jsp">Login</a>
+          <a class="nav-link" href="./login.jsp">Login</a>
         </li>
       </ul>
     </div>
