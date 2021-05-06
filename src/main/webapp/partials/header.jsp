@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
 <meta charset="ISO-8859-1">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,3 +11,4 @@
 <title><%! String pageTitle; %> - Adilson T2S Project</title>
 </head>
 <body>
+<%@ include file="navbar.jsp"%>
