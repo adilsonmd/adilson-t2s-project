@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Adilson project - T2S</title>
+<title>Início - Adilson T2S Project</title>
 </head>
 <body>
 <h1><%= "Hello world, JSP!" %></h1>
