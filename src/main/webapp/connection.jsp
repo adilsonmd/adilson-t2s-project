@@ -5,9 +5,9 @@
 <%
 	out.println("<h2>tb_conteiner</h2>");
 
-	String url = "jdbc:postgresql://localhost:5432/t2s";
+	String url = "jdbc:postgresql://172.31.56.85:5432/t2s";
 	String dbUsername = "postgres";
-	String dbPassword = "ad123";
+	String dbPassword = "ad123456";
 
 	try{
 	Connection conn = DriverManager.getConnection(url,dbUsername,dbPassword);
