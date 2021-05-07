@@ -1,18 +1,19 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container">
-    <a class="navbar-brand" href="#">T2S</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
+    <a class="navbar-brand" href="./index.jsp">T2S</a>
+    <div class="nav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" href="./index.jsp">Home</a>
+          <a class="nav-link">Sobre</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./connection.jsp">Listar DB</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="./login.jsp">Login</a>
         </li>
+        
       </ul>
-    </div>
+      </div>
   </div>
 </nav>

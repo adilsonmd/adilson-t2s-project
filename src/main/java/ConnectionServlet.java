@@ -39,7 +39,7 @@ public class ConnectionServlet extends HttpServlet {
 	            "<!doctype html>";
 	    out.println(docType +
 	            "<html>\n" +
-	            "<head><title>Brabo</title></head>\n" +
+	            "<head><title>Connection Servlet</title></head>\n" +
 	            "<body bgcolor = \"#f0f0f0\">\n" +
 	            "<h1 align = \"center\">Teste BD</h1>\n"
 	            + "<h2>tb_conteiner</h2>");

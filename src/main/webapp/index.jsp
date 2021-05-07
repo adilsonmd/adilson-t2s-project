@@ -1,6 +1,6 @@
 <%@ page import="javax.naming.Context"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ include file="partials/header.jsp" %>
 
 <div class="container">
@@ -8,7 +8,6 @@
 		<h1><%= "Hello world, JSP!" %></h1>
 	</div>
 
-	<p></p>
 	<a href="login.jsp">Login</a>
 	<a href="connection.jsp">Testa connection</a>
 </div>
