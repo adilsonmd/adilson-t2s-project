@@ -4,8 +4,13 @@
 <!DOCTYPE html>
 <%
 	out.println("<h2>tb_conteiner</h2>");
-
-	String url = "jdbc:postgresql://100.24.74.6:5432/t2s";
+	//AppSecrets secrets = new AppSecrets();
+	// URL para o IP publico
+	//String url = "jdbc:postgresql://100.24.74.6:5432/t2s";
+	
+	// URL para o IP privado
+	String url = "jdbc:postgresql://172.31.56.85:5432/t2s";
+	
 	String dbUsername = "postgres";
 	String dbPassword = "ad123";
 
