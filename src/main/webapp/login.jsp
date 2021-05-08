@@ -10,18 +10,21 @@
     
     <div class="col-6 border border-3 p-3">
 	<form method="POST" action="./login_validation.jsp">
-	<div class="mb-3">
-		<label for="username" class="form-label">Nome de usuário</label>
-		<input type="text" id="username" name="username" class="form-control">
-	</div>
-		
-	<div class="mb-3">	
-		<label for="password" class="form-label">Senha</label>
-		<input type="password" id="password" name="password" class="form-control">
-	</div>
-	<div class="mb-3">	
-		<button type="submit" class="btn btn-primary">Entrar</button>
-	</div>
+		<div class="mb-3">
+			<label for="email" class="form-label">Email de acesso:</label>
+			<input type="text" id="email" name="email" class="form-control">
+		</div>
+			
+		<div class="mb-3">	
+			<label for="password" class="form-label">Senha:</label>
+			<input type="password" id="password" name="password" class="form-control">
+		</div>
+		<div class="mb-3">	
+			<button type="submit" class="btn btn-primary">Entrar</button>
+		</div>
+		<div class="mb-3">
+			<a href="./cadastro_usuario.jsp">Cadastrar</a>
+		</div>
 	</form>
 	</div>
 	</div>

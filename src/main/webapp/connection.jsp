@@ -1,3 +1,5 @@
+<!-- https://stackoverflow.com/questions/15839335/using-for-loop-inside-of-a-jsp  -->
+
 <%@page import="java.io.PrintWriter"%>
 <%@ page import="java.sql.*"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -24,10 +26,11 @@
 			dbUsername,
 			dbPassword);
 	
-	String sql = "SELECT * FROM tb_conteiner;";
+	String sql = "SELECT * FROM tb_conteiner LIMIT 100";
 	
-	Statement st = conn.createStatement(); 
+	Statement st = conn.createStatement();
 	ResultSet rs = st.executeQuery(sql); 
+	
 	out.println("id_conteiner | ");
 	out.println("cliente | ");
 	out.println("numero_conteiner | ");
@@ -38,13 +41,21 @@
 	
 	while(rs.next())
 	{
-		out.println(rs.getInt("id_conteiner"));
-		out.println(rs.getString("cliente"));
-		out.println(rs.getString("numero_conteiner"));
-		out.println(rs.getInt("tipo_conteiner"));
-		out.println(rs.getString("status_conteiner"));
-		out.println(rs.getString("categoria_conteiner"));
-		out.println("<br>\n");
+// 		out.println(rs.getInt("id_conteiner"));
+// 		out.println(rs.getString("cliente"));
+// 		out.println(rs.getString("numero_conteiner"));
+// 		out.println(rs.getInt("tipo_conteiner"));
+// 		out.println(rs.getString("status_conteiner"));
+// 		out.println(rs.getString("categoria_conteiner"));
+// 		out.println("<br>\n");
+
+		out.println(rs.getInt(1));
+		out.println(rs.getString(2));
+		out.println(rs.getString(3));
+		out.println(rs.getInt(4));
+		out.println(rs.getString(5));
+		out.println(rs.getString(6));
+ 		out.println("<br>\n");
 	}
 	
 	// ====== TABELA MOVIMENTACAO ===========
@@ -58,7 +69,7 @@
 			") AS tipo_movimentacao, "+
 			"data_inicio, "+
 			"data_fim "+
-			"FROM tb_movimentacao;";
+			"FROM tb_movimentacao LIMIT 100;";
 	//out.println(sql);
 	
 	out.println("id_movimentacao | ");
