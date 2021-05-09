@@ -1,11 +1,9 @@
-<%@page import="br.com.t2s.BaseConnection"%>
 <%@page import="java.security.NoSuchAlgorithmException"%>
 <%@page import="java.security.MessageDigest"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 
 <%@ page import="java.sql.*" %>
-<%@ page import="br.com.t2s.AppSecrets" %>
 <%@ include file="partials/header.jsp" %>
 <p>Carregando...</p>
 <%
