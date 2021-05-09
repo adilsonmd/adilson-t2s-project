@@ -7,18 +7,8 @@ if(session.getAttribute("user-logged-in") != "true") {
 <%@ include file="partials/header.jsp"%>
 
 <div class="container">
-<table>
-<thead>
-	<tr>
-		<th scope="col">ID</th>
-		<th scope="col">Cliente</th>
-		<th scope="col">Num. Contêiner</th>
-	</tr>
-</thead>
 
-</table>
-<%
-out.println("Dashboard");
-%>
+<h1>Dashboard</h1>
+<a href="./conteiner.jsp">Listar conteiner</a>
 </div>
 <%@ include file="partials/footer.jsp"%>

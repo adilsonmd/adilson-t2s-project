@@ -8,20 +8,19 @@
 <%@ include file="partials/header.jsp" %>
 <div class="container">
 <%
-	out.println("<h2>tb_conteiner</h2>");
 	//AppSecrets secrets = new AppSecrets();
 	// URL para o IP publico
 
-	String url = "jdbc:postgresql://100.24.74.6:5432/t2s";
+	//String url = "jdbc:postgresql://100.24.74.6:5432/t2s";
 	
 	// URL para o IP privado
-	//String url = "jdbc:postgresql://172.31.56.85:5432/t2s";
+	String url = "jdbc:postgresql://172.31.56.85:5432/t2s";
 	//String url = "jdbc:postgresql://localhost:5432/t2s";
 	String dbUsername = "postgres";
 	String dbPassword = "ad123";
 
 	try{
-	Connection conn = DriverManager.getConnection(
+		Connection conn = DriverManager.getConnection(
 			url,
 			dbUsername,
 			dbPassword);

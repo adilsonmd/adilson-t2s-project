@@ -11,4 +11,4 @@
 <title>Adilson T2S Project</title>
 </head>
 <body>
-<%@ include file="navbar.jsp"%>
+<%@ include file="navbar.jsp" %>

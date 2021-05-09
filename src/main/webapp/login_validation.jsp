@@ -35,9 +35,12 @@
 	// comparar com a senha do banco
 	try{
 	
+		String url = "jdbc:postgresql://172.31.56.85:5432/t2s";
+ 		String dbUsername = "postgres";
+ 		String dbPassword = "ad123";
+ 		
+ 		Connection conn = DriverManager.getConnection(url, dbUsername, dbPassword);
 		String sql = "SELECT email_cliente, nome_cliente FROM tb_cliente WHERE email_cliente = ? AND senha = ?";
-		BaseConnection baseCon = new BaseConnection();
-		Connection conn = baseCon.createConnection();
 		
 		PreparedStatement st = conn.prepareStatement(sql);
 		st.setString(1, email);

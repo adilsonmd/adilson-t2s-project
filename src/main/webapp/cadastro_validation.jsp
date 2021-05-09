@@ -6,9 +6,6 @@
 <%@page import="java.security.spec.KeySpec"%>
 <%@page import="java.security.SecureRandom"%>
 
-<%@page import="br.com.t2s.BaseConnection"%>
-<%@page import="br.com.t2s.AppSecrets"%>
-
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 
 <%
@@ -44,8 +41,15 @@
     }
    
  	try {
- 		BaseConnection baseCon = new BaseConnection();
- 		Connection conn = baseCon.createConnection();
+ 		// URL para o IP publico
+ 		//String url = "jdbc:postgresql://100.24.74.6:5432/t2s";
+ 		
+ 		// URL para o IP privado
+ 		String url = "jdbc:postgresql://172.31.56.85:5432/t2s";
+ 		String dbUsername = "postgres";
+ 		String dbPassword = "ad123";
+ 		
+ 		Connection conn = DriverManager.getConnection(url, dbUsername, dbPassword);
 	     
 	    PreparedStatement st = conn.prepareStatement("INSERT INTO tb_cliente (email_cliente, nome_cliente, senha) VALUES (?, ?, ?)");
 	    st.setString(1, email);
