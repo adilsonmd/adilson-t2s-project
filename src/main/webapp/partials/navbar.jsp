@@ -8,9 +8,15 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      	<% if(session.getAttribute("user-logged-in") == "true") { %>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="./dashboard.jsp">Home</a>
+        </li>
+        <% } else { %>
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="./index.jsp">Home</a>
         </li>
+        <% } %>
         <li class="nav-item">
           <a class="nav-link" href="./connection.jsp">Listar DB</a>
         </li>

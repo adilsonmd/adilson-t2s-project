@@ -1,4 +1,3 @@
-<%@page import="br.com.t2s.BaseConnection"%>
 <%@page import="java.sql.*"%>
 <%@page import="java.security.NoSuchAlgorithmException"%>
 <%@page import="java.security.MessageDigest"%>
@@ -7,7 +6,9 @@
 <%@page import="java.security.spec.KeySpec"%>
 <%@page import="java.security.SecureRandom"%>
 
+<%@page import="br.com.t2s.BaseConnection"%>
 <%@page import="br.com.t2s.AppSecrets"%>
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 
 <%
