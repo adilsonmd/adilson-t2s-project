@@ -1,12 +1,64 @@
+<%@page import="br.com.t2s.BaseConnection"%>
+<%@page import="java.security.NoSuchAlgorithmException"%>
+<%@page import="java.security.MessageDigest"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 
+<%@ page import="java.sql.*" %>
+<%@ page import="br.com.t2s.AppSecrets" %>
 <%@ include file="partials/header.jsp" %>
 <p>Carregando...</p>
-<p>Bem-vindo, <strong><%= request.getParameter("username") %></strong></p>
 <%
+
+	String email = request.getParameter("email");
+	String password = request.getParameter("password");
+	
+	String generatedPassword = null;
+	try {
+	   MessageDigest md = MessageDigest.getInstance("SHA2");
+	   md.update(password.getBytes());
+	   
+	   byte[] resultByteArray = md.digest();
+	   
+	   StringBuilder sb = new StringBuilder();
+	   for (byte b : resultByteArray)
+	   {
+	  	 sb.append(String.format("%02x", b));
+	   }
+	   generatedPassword = sb.toString();
+	} 
+	catch (NoSuchAlgorithmException e) 
+	{
+	   e.printStackTrace();
+	}
+	
+	// comparar com a senha do banco
+	try{
+	
+		String sql = "SELECT email_cliente, nome_cliente FROM tb_cliente WHERE email_cliente = ? AND senha = ?";
+		BaseConnection baseCon = new BaseConnection();
+		Connection conn = baseCon.createConnection();
+		
+		PreparedStatement st = conn.prepareStatement(sql);
+		st.setString(1, email);
+		st.setString(2, generatedPassword);
+		
+		ResultSet rs = st.executeQuery();
+		while(rs.next())
+		{
+			out.println(rs.getString("email_cliente"));
+			out.println(rs.getString("nome_cliente"));
+		}
+		
+		rs.close();
+		st.close();
+		conn.close();
+	} catch (SQLException ex) {
+		ex.printStackTrace();
+	}
+	
 	session.setAttribute("user-logged-in", "true");
-	session.setAttribute("username", request.getParameter("username"));
+	session.setAttribute("username", request.getParameter("email"));
 	
 	response.sendRedirect("./dashboard.jsp");
 %>
