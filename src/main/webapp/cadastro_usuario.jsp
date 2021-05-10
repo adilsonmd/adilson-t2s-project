@@ -15,20 +15,28 @@ if (session.getAttribute("user-logged-in") == "true"){
 		<form action="./cadastro_validation.jsp" method="POST">
 			<div class="mb-3">
 				<label for="nome" class="form-label">Nome de usuário</label>
-				<input type="text" id="nome" name="nome" class="form-control">
+				<input type="text" id="nome" name="nome" 
+				required="required" class="form-control"
+				maxlength="255">
 			</div>
 
 			<div class="mb-3">
 				<label for="email" class="form-label">Email</label>
-				<input type="text" id="email" name="email" class="form-control">
+				<input type="text" id="email" name="email" 
+				required="required" class="form-control"
+				maxlength="255">
 			</div>
 			<div class="mb-3">	
 				<label for="password" class="form-label">Senha</label>
-				<input type="password" id="password" name="password" class="form-control">
+				<input type="password" id="password" name="password" 
+						required="required" class="form-control"
+						maxlength="255">
 			</div>
 			<div class="mb-3">	
 				<label for="password_confirmation" class="form-label">Confirmação de Senha</label>
-				<input type="password" id="password_confirmation" name="password_confirmation" class="form-control">
+				<input type="password" id="password_confirmation" name="password_confirmation"
+				       required="required" class="form-control"
+				       maxlength="255">
 			</div>
 			<button type="submit" class="btn btn-primary">Criar</button>
 		</form>
