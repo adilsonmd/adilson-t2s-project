@@ -20,7 +20,9 @@
         <li class="nav-item">
           <a class="nav-link" href="./connection.jsp">Listar DB</a>
         </li>
-        
+        <li class="nav-item">
+          <a class="nav-link" href="./sobre.jsp">Sobre</a>
+        </li>
         <% if(session.getAttribute("user-logged-in") == "true") { %>
           <li class="nav-item">
             <a class="nav-link disabled text-light">Olá, <%= session.getAttribute("username") %></a>
