@@ -12,7 +12,7 @@
 		response.sendRedirect("./error_page.jsp");	
 	}
 
-	String url = "jdbc:postgresql://localhost:5432/t2s";
+	String url = "jdbc:postgresql://172.31.56.85:5432/t2s";
 	String dbUsername = "postgres";
 	String dbPassword = "ad123";
 
