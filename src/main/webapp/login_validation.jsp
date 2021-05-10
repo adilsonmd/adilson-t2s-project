@@ -10,7 +10,6 @@
 
 	String email = request.getParameter("email");
 	String password = request.getParameter("password");
-	String nome_cliente = "";
 	
 	String generatedPassword = null;
 	try {
@@ -50,7 +49,6 @@
 		{
 			out.println(rs.getString("email_cliente"));
 			out.println(rs.getString("nome_cliente"));
-			nome_cliente = rs.getString("nome_cliente");
 		}
 		
 		rs.close();
@@ -61,7 +59,7 @@
 	}
 	
 	session.setAttribute("user-logged-in", "true");
-	session.setAttribute("username", nome_cliente);
+	session.setAttribute("username", request.getParameter("email"));
 	
 	response.sendRedirect("./dashboard.jsp");
 %>
