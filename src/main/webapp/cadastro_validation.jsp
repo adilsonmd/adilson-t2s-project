@@ -45,7 +45,8 @@
  		//String url = "jdbc:postgresql://100.24.74.6:5432/t2s";
  		
  		// URL para o IP privado
- 		String url = "jdbc:postgresql://172.31.56.85:5432/t2s";
+ 		//String url = "jdbc:postgresql://172.31.56.85:5432/t2s";
+ 		String url = "jdbc:postgresql://localhost:5432/t2s";
  		String dbUsername = "postgres";
  		String dbPassword = "ad123";
  		
@@ -56,10 +57,10 @@
 	    st.setString(2, nome);
 	    st.setString(3, generatedPassword);
 	    
-	    boolean done = st.execute();
+	    ResultSet rs = st.executeQuery();
 	    
-	 	if(done) {
-	 		System.out.println(done);
+	 	if(rs.first()) {
+	 		System.out.println("OKAY");
 	 	}
 	 	else {
 	 		System.out.println("ERRO AO SALVAR");
@@ -67,7 +68,7 @@
 	 	st.close();
 	 	conn.close();
  	} catch (SQLException ex) {
- 		ex.printStackTrace();
+ 		out.println(ex.getMessage());
  	}
 	System.out.println("Nome: " + nome);
 	System.out.println("Email: " + email);
