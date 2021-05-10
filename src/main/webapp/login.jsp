@@ -12,12 +12,16 @@
 	<form method="POST" action="./login_validation.jsp">
 		<div class="mb-3">
 			<label for="email" class="form-label">Email de acesso:</label>
-			<input type="text" id="email" name="email" class="form-control">
+			<input type="text" id="email" name="email" 
+			required="required" maxlength="255" 
+			class="form-control">
 		</div>
 			
 		<div class="mb-3">	
 			<label for="password" class="form-label">Senha:</label>
-			<input type="password" id="password" name="password" class="form-control">
+			<input type="password" id="password" name="password" 
+			required="required" maxlength="255" 
+			class="form-control">
 		</div>
 		<div class="mb-3">	
 			<button type="submit" class="btn btn-primary">Entrar</button>
