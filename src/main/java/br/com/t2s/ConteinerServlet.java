@@ -33,7 +33,6 @@ public class ConteinerServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
 		// https://www.baeldung.com/servlet-json-response
-		
 		PrintWriter out = response.getWriter();
 	
 		response.setContentType("application/json");
@@ -46,9 +45,7 @@ public class ConteinerServlet extends HttpServlet {
 			// https://search.maven.org/artifact/com.google.code.gson/gson/2.8.6/jar
 			// https://sites.google.com/site/gson/gson-user-guide
 			Gson gson = new Gson();
-			
-			String jsonObject = gson.toJson(conteinerList);
-			
+			String jsonObject = gson.toJson(conteinerList);	
 			out.print(jsonObject);			
 		} catch(Exception ex)
 		{
