@@ -9,6 +9,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import sun.security.provider.certpath.ResponderId;
 
 /**
  * Servlet implementation class LoginServlet
@@ -33,6 +34,7 @@ public class LoginServlet extends HttpServlet {
 		System.out.println("[LoginServlet] - GET acessado");
 		
 		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
 	}
 
 	/**
