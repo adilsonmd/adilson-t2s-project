@@ -5,9 +5,9 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class BaseConnection {
-	private AppSecrets secrets = new AppSecrets();
+	private static AppSecrets secrets = new AppSecrets();
 	
-	public Connection createConnection() throws SQLException {
+	public static Connection createConnection() throws SQLException {
 		return DriverManager.getConnection(
 				secrets.getUrl(),
 				secrets.getDbUsername(),
