@@ -118,7 +118,7 @@ var app = new Vue({
 	},
 	mounted(){
 		axios
-		.get('http://localhost:8080/adilson-t2s-project/ConteinerServlet')
+		.get('<%= request.getContextPath() %>/ConteinerServlet')
 		.then(response => this.conteiners = response.data)
 		.catch(function(error){
 			console.error(error);	
