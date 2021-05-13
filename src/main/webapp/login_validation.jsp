@@ -76,7 +76,7 @@
 		conn.close();
 	} catch (SQLException ex) { %>
 	
-	<a href="index.jsp">Tente novamente</a>
+	<a href="login.jsp">Tente novamente</a>
 	
 	<% 
 		out.println(ex.getMessage());
