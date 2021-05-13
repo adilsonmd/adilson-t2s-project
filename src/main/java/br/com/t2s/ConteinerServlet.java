@@ -66,6 +66,11 @@ public class ConteinerServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		if(request.getParameter("update") != null && request.getParameter("update").isBlank() == false) {
+			doPut(request, response);
+			return;
+		}
+		
 		PrintWriter out = response.getWriter();
 		
 		String cliente = request.getParameter("cliente");
@@ -128,10 +133,42 @@ public class ConteinerServlet extends HttpServlet {
 			}
 			else {
 				
-				System.out.print("Erro");
+				System.out.print("Erro [doDelete ConteinerServlet]");
+			}
+		}
+	}
+	
+	@Override
+	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		int idUpdate = 0;
+		Conteiner conteiner = new Conteiner();
+		
+		try {
+			conteiner.setCliente(request.getParameter("cliente"));
+			conteiner.setNumero_conteiner(request.getParameter("numero_conteiner"));
+			conteiner.setTipo_conteiner(Integer.parseInt(request.getParameter("tipo_conteiner")));
+			conteiner.setStatus_conteiner(request.getParameter("status_conteiner"));
+			conteiner.setCategoria_conteiner(request.getParameter("categoria_conteiner"));
+			
+			idUpdate = Integer.parseInt(request.getParameter("update"));
+			
+		} catch(Exception ex) {
+			System.out.println("Erro de conversão");
+		}
+		
+		if(idUpdate > 0) {
+			int status = ConteinerDAO.update(idUpdate, conteiner);
+			
+			if(status>0)
+			{
+				System.out.print("Sucesso");
+				response.sendRedirect(request.getContextPath() + "/conteiner.jsp");
+			}
+			else {
+				
+				System.out.print("Erro [doPut ConteinerServlet]");
 			}
 		}
 	}
 
-	
 }

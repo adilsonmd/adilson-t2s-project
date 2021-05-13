@@ -47,6 +47,33 @@ public class ConteinerDAO {
 		return status;
 	}
 	
+	public static Conteiner listOne(int id) {
+		Conteiner conteiner = new Conteiner();
+		
+		Connection conn;
+		try {
+			conn = BaseConnection.createConnection();
+			String SQL = "SELECT * FROM tb_conteiner WHERE id_conteiner = ?";
+			PreparedStatement ps = conn.prepareStatement(SQL);
+			ps.setInt(1, id);
+			ResultSet rs = ps.executeQuery();
+			
+			while(rs.next())
+			{
+				conteiner.setId_conteiner(rs.getInt(1));
+				conteiner.setCliente(rs.getString(2));
+				conteiner.setNumero_conteiner(rs.getString(3));
+				conteiner.setTipo_conteiner(rs.getInt(4));
+				conteiner.setStatus_conteiner(rs.getString(5));
+				conteiner.setCategoria_conteiner(rs.getString(6));
+			}
+			
+		} catch (Exception ex) {
+			System.out.println("Erro ao listar um");
+			System.out.println(ex.getMessage());
+		}
+		return conteiner;
+	}
 	public static List<Conteiner> listAll()
 	{
 		List<Conteiner> all_conteiners = new ArrayList<Conteiner>();
@@ -145,6 +172,43 @@ public class ConteinerDAO {
 			
 		} catch (Exception ex) {
 			
+		}
+		return status;
+	}
+	
+	public static int update(int id, Conteiner conteiner)
+	{
+		int status = 0;
+		
+		Connection conn;
+		try {
+			conn = BaseConnection.createConnection();
+			
+			String SQL = "UPDATE tb_conteiner\r\n"
+					+ "SET cliente=?, numero_conteiner=?, tipo_conteiner=?, status_conteiner=?, categoria_conteiner=?\r\n"
+					+ "WHERE id_conteiner = ?";
+			
+			PreparedStatement ps = conn.prepareStatement(SQL);
+			ps.setString(1, conteiner.getCliente());
+			ps.setString(2, conteiner.getNumero_conteiner());
+			ps.setInt(3, conteiner.getTipo_conteiner());
+			ps.setString(4, conteiner.getStatus_conteiner());
+			ps.setString(5, conteiner.getCategoria_conteiner());
+			ps.setInt(6, id);
+			
+			status = ps.executeUpdate();
+			
+			if(status > 0)
+			{
+				System.out.println("Atualizado com sucesso");
+			}
+			else {
+				System.out.println("Falha ao update");
+			}
+			
+		} catch (Exception ex) {
+			System.out.println("Erro [ConteinerDAO update]");
+			System.out.println(ex.getMessage());
 		}
 		return status;
 	}

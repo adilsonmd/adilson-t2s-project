@@ -84,7 +84,7 @@ if(session.getAttribute("user-logged-in") != "true") {
 				<td>
 				<div class="row">
 					<div class="col">
-						<form method="PUT">
+						<form method="GET" action="./conteiner_update.jsp">
 							<input type="hidden" name="update" :value="conteiner.id_conteiner"/>
 							<button class="btn btn-secondary" :id="'btnUpdate' + conteiner.id_conteiner">*</button>
 						</form>
@@ -133,4 +133,4 @@ var app = new Vue({
 });
 </script>
 
-<%@ include file="partials/footer.jsp"%>
+<%@ include file="partials/footer.jsp" %>
