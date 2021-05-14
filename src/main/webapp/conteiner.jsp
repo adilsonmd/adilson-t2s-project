@@ -61,68 +61,83 @@ if(session.getAttribute("user-logged-in") != "true") {
 			</div>
 		</form>
 		
-		<table class="table mt-1">
-		<thead>
-			<tr>
-				<th scope="col">ID</th>
-				<th scope="col">Cliente</th>
-				<th scope="col">Num. Contêiner</th>
-				<th scope="col">Tipo</th>
-				<th scope="col">Status</th>
-				<th scope="col">Categoria</th>
-				<th scope="col">Ações</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr v-for="conteiner, index in conteiners" :key="conteiner.id_conteiner">
-				<td>{{ conteiner.id_conteiner }}</td>
-				<td>{{ conteiner.cliente }}</td>
-				<td><a :href="'./movimentacao.jsp?id_conteiner=' + conteiner.id_conteiner + '&numero_conteiner=' + conteiner.numero_conteiner">
-				{{ conteiner.numero_conteiner }}
-				</a></td>
-				<td>{{ conteiner.tipo_conteiner }}</td>
-				<td>{{ conteiner.status_conteiner }}</td>
-				<td>{{ conteiner.categoria_conteiner }}</td>
-				<td>
-				<div class="row">
-					<div class="col">
-						<form method="GET" action="./conteiner_update.jsp">
-							<input type="hidden" name="update" :value="conteiner.id_conteiner"/>
-							<button class="btn btn-secondary" :id="'btnUpdate' + conteiner.id_conteiner">*</button>
-						</form>
-					</div>
-					<div class="col">
-						<form method="DELETE" action="./ConteinerServlet"> 
-							<input type="hidden" name="delete" :value="conteiner.id_conteiner"/>
-							<button class="btn btn-secondary" :id="'btnDelete' + conteiner.id_conteiner">-</button>
-						</form>
-					</div>
+		<v-data-table :headers="tb_headers" :items="conteiners" :items-per-page="5"
+			class="elevation-1">
+			<template v-slot:[`item.numero_conteiner`]="{ item }">
+				<a :href="'./movimentacao.jsp?id_conteiner=' + item.id_conteiner + '&numero_conteiner=' + item.numero_conteiner">
+				{{ item.numero_conteiner }}
+				</a>
+			</template>
+			
+			<template v-slot:[`item.actions`]="{ item }">
+			<div class="row">
+			<div class="col">
+				<form action="./conteiner_update.jsp" method="PUT" :id="'editForm'+item.id_conteiner">
+					<input type="hidden" name="update" :value="item.id_conteiner">
+		            <button type="submit"><v-icon>mdi-pencil</v-icon></button>
+				</form>
 				</div>
-				</td>
-			</tr>
-		</tbody>
-		</table>
-		
+				<div class="col">
+				<form action="./ConteinerServlet" method="DELETE" :id="'deleteForm'+item.id_conteiner">
+					<input type="hidden" name="delete" :value="item.id_conteiner">
+		            <button type="submit"><v-icon>mdi-delete</v-icon></button>
+				</form>
+				</div>
+				</div>
+	          </template>
+		</v-data-table>
 	<div>
 		<p v-if="error == true">Erro ao conectar</p>
 	</div>
 </div> <!--  END div.app  -->
 </div> <!-- END div.container -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+  
 <script>
 var app = new Vue({
 	el: '#app',
+	vuetify: new Vuetify(),
+	
 	data() {
 	   return {
+	    conteiners: [],
+	    tb_headers: [
+	    	{text: 'ID', value: 'id_conteiner', sortable: true},
+	    	{text: 'Cliente', value: 'cliente', sortable: true},
+	    	{text: 'Num. Contêiner', value: 'numero_conteiner', sortable: true},
+	    	{text: 'Tipo', value: 'tipo_conteiner', sortable: true},
+	    	{text: 'Status', value: 'status_conteiner', sortable: true},
+	    	{text: 'Categoria', value: 'categoria_conteiner', sortable: true},
+	    	{text: 'Ações', value: 'actions', sortable: false}
+	    ],
+	    
 	    error: false,
-	    conteiners: null,
     	cliente: null,
     	numero_conteiner: null,
     	tipo_conteiner: null,
     	status_conteiner: null,
     	categoria_conteiner: null 
     	}
+	},
+	methods: {
+		deleteConteiner: function(id)
+		{
+			if(confirm("Você deseja deletar esse registro?"))
+			{
+				console.log("deletando: " + id)
+			
+			}
+			else {
+				console.log("cancelado: " + id)		
+			}
+		},
+		
+		editConteiner: function(id)
+		{
+			console.log("editando: " + id)
+		}
 	},
 	mounted(){
 		axios

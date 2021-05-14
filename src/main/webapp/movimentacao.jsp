@@ -59,55 +59,48 @@ String numeroConteiner = request.getParameter("numero_conteiner");
 				</div>
 			</div>
 		</form>
-		
-		<table class="table mt-1">
-		<thead>
-			<tr>
-				<th scope="col">ID</th>
-				<th scope="col">Num. Contêiner</th>
-				<th scope="col">Tipo de Movimentação</th>
-				<th scope="col">Data Início</th>
-				<th scope="col">Data Fim</th>
-				<th scope="col">Ações</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr v-for="movimentacao, index in movimentacoes" :key="movimentacao.id">
-				<td>{{ movimentacao.id }}</td>
-				<td>{{ movimentacao.numero_conteiner }}</td>
-				<td>{{ movimentacao.tipo_movimentacao }}</td>
-				<td>{{ movimentacao.dataInicio }}</td>
-				<td>{{ movimentacao.dataFim }}</td>
-				<td>
-				<div class="row">
-					<div class="col">
-						<form method="GET" action="./movimentacao_update.jsp">
-							<input type="hidden" name="update" :value="movimentacao.id"/>
-							<button class="btn btn-secondary" :id="'btnUpdate' + movimentacao.id_movimentacao">*</button>
-						</form>
-					</div>
-					<div class="col">
-						<form method="DELETE" action="./MovimentacaoServlet"> 
-							<input type="hidden" name="delete" :value="movimentacao.id"/>
-							<input type="hidden" name="id_conteiner" value="<%= idConteiner %>">
-							<button class="btn btn-secondary" :id="'btnDelete' + movimentacao.id_movimentacao">-</button>
-						</form>
-					</div>
+				
+		<v-data-table :headers="tb_headers" :items="movimentacoes" :items-per-page="5"
+			class="elevation-1">
+				
+			<template v-slot:[`item.actions`]="{ item }">
+			<div class="row">
+			<div class="col">
+				<form action="./movimentacao_update.jsp" method="PUT" :id="'editForm'+item.id">
+					<input type="hidden" name="update" :value="item.id">
+		            <button type="submit"><v-icon>mdi-pencil</v-icon></button>
+				</form>
 				</div>
-				</td>
-			</tr>
-		</tbody>
-		</table>
+				<div class="col">
+				<form action="./MovimentacaoServlet" method="DELETE" :id="'deleteForm'+item.id">
+					<input type="hidden" name="delete" :value="item.id">
+		            <button type="submit"><v-icon>mdi-delete</v-icon></button>
+				</form>
+				</div>
+				</div>
+	          </template>
+		</v-data-table>
 		
 </div> <!--  END div.app  -->
 </div> <!-- END div.container -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
 <script>
 var app = new Vue({
 	el: '#app',
+	vuetify: new Vuetify(),
 	data() {
 	   return {
-		    movimentacoes: null,
+		    movimentacoes: [],
+		    tb_headers: [
+		    	{text:'ID', value: 'id', sortable: true},
+		    	{text:'Num. Contêiner', value: 'numero_conteiner', sortable: true},
+		    	{text: 'Tipo de movimentação', value: 'tipo_movimentacao', sortable: true},
+		    	{text: 'Data início', value: 'dataInicio', sortable: true},
+		    	{text: 'Data Fim', value: 'dataFim', sortable: true},
+		    	{text: 'Ações', value: 'actions', sortable: false}
+		    ],
 			id_conteiner: null,
 			numero_conteiner: null,
 			tipo_movimentacao: null,

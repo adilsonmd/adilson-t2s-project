@@ -80,7 +80,8 @@ public class MovimentacaoDAO {
 					+ "	VALUES (?, ?, ?, ?);";
 			
 			System.out.println("Criando Statemente... [MovimentacaoDAO]");
-			System.out.println("Data: " + movimentacao.getDataInicio());
+			System.out.println("Data inicio: " + movimentacao.getDataInicio());
+			System.out.println("Data fim: " + movimentacao.getDataFim());
 			
 			PreparedStatement ps =  conn.prepareStatement(SQL);
 			ps.setString(1, movimentacao.getTipo_movimentacao());

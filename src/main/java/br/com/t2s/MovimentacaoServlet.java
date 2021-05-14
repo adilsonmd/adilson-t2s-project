@@ -165,11 +165,13 @@ public class MovimentacaoServlet extends HttpServlet {
 			idUpdate = Integer.parseInt(request.getParameter("update"));
 			
 			movimentacao.setTipo_movimentacao(request.getParameter("tipo_movimentacao"));
-			movimentacao.setDataInicio(dataInicioStr + " " + horaInicioStr+":00");
-			movimentacao.setDataFim(dataFimStr + " " + horaFimStr+":00");
+			movimentacao.setDataInicio(dataInicioStr + " " + horaInicioStr + ":00");
+			movimentacao.setDataFim(dataFimStr + " " + horaFimStr + ":00");
 			movimentacao.setId_conteiner(idConteiner);
 			movimentacao.setNumero_conteiner(request.getParameter("numero_conteiner"));
 			
+			System.out.println("Data inicio [MovimentacaoServlet]: " + movimentacao.getDataInicio());
+			System.out.println("Data fim [MovimentacaoServlet]: " + movimentacao.getDataFim());
 			
 		} catch(Exception ex) {
 			System.out.println("Erro de conversão");
@@ -185,7 +187,7 @@ public class MovimentacaoServlet extends HttpServlet {
 			}
 			else {
 				
-				System.out.print("Erro [doPut ConteinerServlet]");
+				System.out.print("Erro [doPut MovimentacaoServlet]");
 			}
 		}
 	}
