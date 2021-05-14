@@ -77,7 +77,9 @@ if(session.getAttribute("user-logged-in") != "true") {
 			<tr v-for="conteiner, index in conteiners" :key="conteiner.id_conteiner">
 				<td>{{ conteiner.id_conteiner }}</td>
 				<td>{{ conteiner.cliente }}</td>
-				<td>{{ conteiner.numero_conteiner }}</td>
+				<td><a :href="'./movimentacao.jsp?id_conteiner=' + conteiner.id_conteiner + '&numero_conteiner=' + conteiner.numero_conteiner">
+				{{ conteiner.numero_conteiner }}
+				</a></td>
 				<td>{{ conteiner.tipo_conteiner }}</td>
 				<td>{{ conteiner.status_conteiner }}</td>
 				<td>{{ conteiner.categoria_conteiner }}</td>

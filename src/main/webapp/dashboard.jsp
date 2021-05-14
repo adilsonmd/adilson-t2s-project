@@ -8,7 +8,10 @@ if(session.getAttribute("user-logged-in") != "true") {
 
 <div class="container">
 
-<h1>Dashboard</h1>
-<a href="./conteiner.jsp">Listar conteiner</a>
+	<h1>Dashboard</h1>
+	<div>
+		<a href="./conteiner.jsp">Listar conteiner</a>
+		<a href="./movimentacao.jsp">Listar movimentacao</a>
+	</div>
 </div>
 <%@ include file="partials/footer.jsp"%>
