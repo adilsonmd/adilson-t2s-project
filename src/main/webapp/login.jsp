@@ -25,7 +25,7 @@
 			class="form-control">
 		</div>
 		<div class="mb-3">	
-			<button type="submit" class="btn btn-primary">Entrar</button>
+			<button type="submit" class="btn btn-primary text-white">Entrar</button>
 		</div>
 		<div class="mb-3">
 			<a href="./cadastro_usuario.jsp">Cadastrar</a>

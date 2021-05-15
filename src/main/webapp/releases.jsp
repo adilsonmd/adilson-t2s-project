@@ -35,6 +35,7 @@
 		</table>
 	</div>
 </div>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <script>
       var apiURL =
         //"https://api.github.com/repos/vuejs/vue/commits?per_page=3&sha=";

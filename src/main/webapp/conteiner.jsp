@@ -19,7 +19,7 @@ if(session.getAttribute("user-logged-in") != "true") {
 		<form class="inline" action="./ConteinerServlet" method="POST">
 			<div class="row">
 				<div class="col-3">
-					<select name="cliente" v-model="cliente" class="form-select">
+					<select name="cliente" v-model="cliente" class="form-select" required>
 						<option value="null" selected disabled>Usuário</option>
 						<option value="<%= session.getAttribute("username") %>">
 							<%= session.getAttribute("username") %>

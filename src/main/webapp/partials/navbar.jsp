@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
     <a class="navbar-brand" href="./index.jsp">T2S</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
@@ -17,9 +17,6 @@
           <a class="nav-link active" aria-current="page" href="./index.jsp">Home</a>
         </li>
         <% } %>
-        <li class="nav-item">
-          <a class="nav-link" href="./connection.jsp">Listar DB</a>
-        </li>
         <li class="nav-item">
           <a class="nav-link" href="./sobre.jsp">Sobre</a>
         </li>

@@ -24,7 +24,6 @@ Conteiner conteiner = new Conteiner();
 try{	
 	idUpdate = Integer.parseInt(request.getParameter("update"));
 	
-	
 	Connection conn;
 	try {
 		
@@ -98,6 +97,7 @@ try{
 		</select>
 	</div>
 	<div class="mb-2">
+		<a href="./conteiner.jsp" class="btn">Voltar</a>
 		<button type="submit" class="btn btn-primary">Alterar</button>
 	</div>
 </form>

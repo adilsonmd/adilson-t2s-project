@@ -116,7 +116,7 @@ try{
 		<input type="time" name="hora_fim" value="<%= horaF %>" required class="form-control" />
 	</div>
 	<div class="mb-2">
-		<a href="./conteiner.jsp" class="btn">Voltar</a> 
+		<a href="./movimentacao.jsp?id_conteiner=<%= movimentacao.getId_conteiner() %>&numero_conteiner=<%= movimentacao.getNumero_conteiner() %>" class="btn">Voltar</a> 
 		
 		<button type="submit" class="btn btn-primary">Alterar</button>
 	</div>
